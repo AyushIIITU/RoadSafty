@@ -1,8 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Camera } from 'lucide-react';
 import axios from 'axios';
-import RealtimeDetectionScreen from './RealtimeDetection';
 
 // ============================================
 // Capture & Detect Screen (REST based detection)
@@ -179,34 +178,4 @@ function CaptureDetectionScreen() {
     </div>
   );
 }
-
-// ============================================
-// Realtime Detection Screen (WebSocket based)
-// ============================================
-
-
-// ============================================
-// App Component with Routing
-// ============================================
-function App() {
-  return (
-    <Router>
-      <nav className="flex justify-center gap-8 p-4 bg-gray-100">
-        <Link to="/capture" className="text-blue-600 hover:underline">
-          Capture & Detect
-        </Link>
-        <Link to="/realtime" className="text-blue-600 hover:underline">
-          Realtime Detection
-        </Link>
-      </nav>
-      <Routes>
-        <Route path="/capture" element={<CaptureDetectionScreen />} />
-        <Route path="/realtime" element={<RealtimeDetectionScreen />} />
-        {/* Default route */}
-        <Route path="*" element={<CaptureDetectionScreen />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
+export default CaptureDetectionScreen;
